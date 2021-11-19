@@ -24,7 +24,7 @@ public class Application {
     private static InputValidator inputValidator = new InputValidatorImpl();
     private static BuildReceiptCommand buildReceiptCommand = new BuildReceiptCommand(inputValidator, receiptBuilder, outputStringReceiptBuilder);
 
-    //example input 3-1 2-5 5-1 card-1234
+    //example input 3-1 2-5 5-1 card-1
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

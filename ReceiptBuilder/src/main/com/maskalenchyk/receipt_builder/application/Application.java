@@ -13,7 +13,7 @@ import maskalenchyk.receipt_builder.service.OutputStringReceiptBuilderImpl;
 import maskalenchyk.receipt_builder.service.ReceiptBuilder;
 import maskalenchyk.receipt_builder.service.ReceiptBuilderImpl;
 
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class Application {
 
@@ -24,12 +24,16 @@ public class Application {
     private static InputValidator inputValidator = new InputValidatorImpl();
     private static BuildReceiptCommand buildReceiptCommand = new BuildReceiptCommand(inputValidator, receiptBuilder, outputStringReceiptBuilder);
 
+    //example input 3-1 2-5 5-1 card-1234
 
-    public static void main(String[] args) throws CommandException {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter data:");
-        String result = buildReceiptCommand.execute(Arrays.asList(args));
-        System.out.println(result);
+        String input = scanner.nextLine();
+        try {
+            System.out.println(buildReceiptCommand.execute(input));
+        } catch (CommandException e) {
+            System.out.println(e.getMessage());
+        }
     }
-
-
 }

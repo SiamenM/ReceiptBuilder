@@ -4,6 +4,7 @@ import maskalenchyk.receipt_builder.entity.Receipt;
 import maskalenchyk.receipt_builder.service.OutputStringReceiptBuilder;
 import maskalenchyk.receipt_builder.service.ReceiptBuilder;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class BuildReceiptCommand implements Command {
@@ -26,6 +27,12 @@ public class BuildReceiptCommand implements Command {
         } else {
             throw new CommandException("Invalid input");
         }
+    }
+
+    public String execute(String params) throws CommandException {
+        List<String> paramsList = Arrays.asList(params.split(" "));
+        return execute(paramsList);
+
     }
 
     @Override
